@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Rx TDC Example</string>
+    <string name="no_reactive">No Reactive</string>
+</resources>
