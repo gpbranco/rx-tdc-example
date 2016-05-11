@@ -1,7 +1,5 @@
 package br.com.branco.example.rx.tdc.service;
 
-import java.util.List;
-
 import br.com.branco.example.rx.tdc.model.Lecture;
 import rx.Observable;
 
@@ -10,5 +8,5 @@ import rx.Observable;
  */
 public interface ReactiveLectureService {
 
-    Observable<List<Lecture>> getLectures();
+    Observable<Lecture> getLectures();
 }

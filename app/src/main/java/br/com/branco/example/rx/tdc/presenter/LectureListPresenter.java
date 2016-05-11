@@ -39,18 +39,13 @@ public class LectureListPresenter implements LectureListView.AddFilterClickListe
 
     public void loadLectures(){
         getLectures()
+                .toList()
                 .subscribe(subscriber());
     }
 
     public void loadLecturesByDay(final String day){
         lectureListView.showFilter(day);
         getLectures()
-                .flatMap(new Func1<List<Lecture>, Observable<Lecture>>() {
-                    @Override
-                    public Observable<Lecture> call(List<Lecture> lectures) {
-                        return Observable.from(lectures);
-                    }
-                })
                 .filter(new Func1<Lecture, Boolean>() {
                     @Override
                     public Boolean call(Lecture lecture) {
@@ -61,7 +56,7 @@ public class LectureListPresenter implements LectureListView.AddFilterClickListe
                 .subscribe(subscriber());
     }
 
-    private Observable<List<Lecture>> getLectures(){
+    private Observable<Lecture> getLectures(){
         return reactiveLectureService
                 .getLectures()
                 .doOnSubscribe(showLoading())
@@ -106,22 +101,7 @@ public class LectureListPresenter implements LectureListView.AddFilterClickListe
     @Override
     public void onClick() {
         getLectures()
-                .flatMap(new Func1<List<Lecture>, Observable<Lecture>>() {
-                    @Override
-                    public Observable<Lecture> call(List<Lecture> lectures) {
-                        return Observable.from(lectures);
-                    }
-                }).flatMap(new Func1<Lecture, Observable<String>>() {
-                    @Override
-                    public Observable<String> call(Lecture lecture) {
-                        return Observable.just(lecture.getDay());
-                    }
-                }).map(new Func1<String, CharSequence>() {
-                    @Override
-                    public CharSequence call(String filter) {
-                        return filter;
-                    }
-                })
+                .cast(CharSequence.class)
                 .distinct()
                 .toList()
                 .subscribe(new Subscriber<List<CharSequence>>() {
