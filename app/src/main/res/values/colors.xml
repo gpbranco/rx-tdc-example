@@ -6,4 +6,8 @@
     <color name="track_blue">#460c5587</color>
     <color name="track_green">#4607391a</color>
     <color name="track_red">#4639070e</color>
+    <color name="track_orange">#46cc6f13</color>
+    <color name="track_gray">#46a39d97</color>
+    <color name="track_yellow">#46bece15</color>
+    <color name="track_purple">#46a40a83</color>
 </resources>

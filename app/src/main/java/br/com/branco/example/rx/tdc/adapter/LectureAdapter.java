@@ -2,8 +2,6 @@ package br.com.branco.example.rx.tdc.adapter;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +14,8 @@ import java.util.List;
 import br.com.branco.example.rx.tdc.R;
 import br.com.branco.example.rx.tdc.model.Lecture;
 import br.com.branco.example.rx.tdc.model.Track;
-import br.com.branco.example.rx.tdc.service.InMemoryLectureService;
+
+import static br.com.branco.example.rx.tdc.service.InMemoryLectureService.*;
 
 /**
  * Created by guilhermebranco on 5/4/16.
@@ -49,7 +48,7 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
         holder.tvName.setText(lecture.getName());
         holder.tvTrack.setText(lecture.getTrack().getName());
         holder.tvDetails.setText(lecture.getHour() + " - " + lecture.getDay());
-        holder.tvTrack.setBackground(getColoByTrack(lecture.getTrack()));
+        holder.tvTrack.setBackground(getColorByTrack(lecture.getTrack()));
     }
 
     @Override
@@ -71,17 +70,34 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.LectureV
         }
     }
 
-    private Drawable getColoByTrack(Track track){
-        if(InMemoryLectureService.ANDROID.getName().equalsIgnoreCase(track.getName())){
+    private Drawable getColorByTrack(Track track){
+
+        if(ANDROID.getName().equalsIgnoreCase(track.getName())){
             return context.getResources().getDrawable(R.drawable.layout_bg_green);
         }
 
-        if(InMemoryLectureService.ARQUITETURA.getName().equalsIgnoreCase(track.getName())){
+        if(ARQUITETURA.getName().equalsIgnoreCase(track.getName())){
             return context.getResources().getDrawable(R.drawable.layout_bg_red);
         }
 
-        if(InMemoryLectureService.MOBILE.getName().equalsIgnoreCase(track.getName())){
+        if(MOBILE.getName().equalsIgnoreCase(track.getName())){
             return context.getResources().getDrawable(R.drawable.layout_bg_blue);
+        }
+
+        if(IOS.getName().equalsIgnoreCase(track.getName())){
+            return context.getResources().getDrawable(R.drawable.layout_bg_orange);
+        }
+
+        if(JAVA.getName().equalsIgnoreCase(track.getName())){
+            return context.getResources().getDrawable(R.drawable.layout_bg_yellow);
+        }
+
+        if(DOT_NET.getName().equalsIgnoreCase(track.getName())){
+            return context.getResources().getDrawable(R.drawable.layout_bg_gray);
+        }
+
+        if(XAMARIN.getName().equalsIgnoreCase(track.getName())){
+            return context.getResources().getDrawable(R.drawable.layout_bg_purple);
         }
 
         return context.getResources().getDrawable(R.drawable.layout_bg_blue);

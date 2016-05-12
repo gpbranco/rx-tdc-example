@@ -101,6 +101,12 @@ public class LectureListPresenter implements LectureListView.AddFilterClickListe
     @Override
     public void onClick() {
         getLectures()
+                .map(new Func1<Lecture, String>() {
+                    @Override
+                    public String call(Lecture lecture) {
+                        return lecture.getDay();
+                    }
+                })
                 .cast(CharSequence.class)
                 .distinct()
                 .toList()
