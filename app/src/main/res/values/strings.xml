@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Rx TDC Example</string>
     <string name="no_reactive">No Reactive</string>
+    <string name="filter_days_title">Selecione o dia</string>
 </resources>

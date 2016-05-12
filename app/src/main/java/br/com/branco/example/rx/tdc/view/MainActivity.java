@@ -59,6 +59,7 @@ public class MainActivity extends BaseActivity{
 
         Bundle bundle = new Bundle();
         bundle.putCharSequenceArrayList(Constants.Extra.FILTERS, filters);
+        bundle.putString(Constants.Extra.TITLE, getString(R.string.filter_days_title));
         filterDialog.setArguments(bundle);
 
         FragmentManager manager = getSupportFragmentManager();

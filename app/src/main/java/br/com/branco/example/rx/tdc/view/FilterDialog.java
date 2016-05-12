@@ -21,6 +21,7 @@ public class FilterDialog extends DialogFragment implements AdapterView.OnItemCl
 
     private ListView lvFilters;
     private ArrayList<CharSequence> filters = new ArrayList<>();
+    private String title;
     private LectureListView.SelectFilterListener selectFilterListener;
 
     public void setSelectFilterListener(LectureListView.SelectFilterListener selectFilterListener) {
@@ -31,6 +32,7 @@ public class FilterDialog extends DialogFragment implements AdapterView.OnItemCl
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         filters = getArguments().getCharSequenceArrayList(Constants.Extra.FILTERS);
+        title = getArguments().getString(Constants.Extra.TITLE);
     }
 
     @Override
@@ -39,6 +41,7 @@ public class FilterDialog extends DialogFragment implements AdapterView.OnItemCl
 
         View view = inflater.inflate(R.layout.dialog_fragment, null, false);
         lvFilters = (ListView) view.findViewById(R.id.list);
+        getDialog().setTitle(title);
 
         return view;
     }
