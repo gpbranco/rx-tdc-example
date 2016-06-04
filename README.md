@@ -1,7 +1,7 @@
 Reactive Programming on Android - RxJava Example
 ==============
 
-This repository contains the demo application used as an example of reactive programming on Android talk I gave on the The Developer’s Conference - 2016 in Florianópolis, SC.
+This repository contains the demo application used as an example of reactive programming on Android talk I gave on the [The Developer’s Conference - 2016](http://www.thedevelopersconference.com.br) in Florianópolis, SC. Here's the link to the [slides](http://www.slideshare.net/guipbranco/reactive-programming-no-android).
 
 ## Goal
 
